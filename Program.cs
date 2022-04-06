@@ -7,6 +7,7 @@ partial class Program
     {
         Program.sockMerchant(7);
         RepeatingLetter.RepeatedString("ababa", 3);
+        LeastPath.JumpingClouds.CloudLeastPath(new List<int>{0, 0, 1 ,0 ,0, 1 ,0});
     }
 
     // Sock Merchant color pairing

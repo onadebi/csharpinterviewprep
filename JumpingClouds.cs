@@ -13,17 +13,18 @@ public class JumpingClouds
             if (c[index] == 0)
             {
                 objResult++;
-            }
-            if (index < len - 1 && index < len - 2)
-            {
-
-                if (c[index + 1] == 0 && c[index + 2] == 0)
+                if (index < len - 1 && index < len - 2)
                 {
-                    c[index + 1] = 1;
+
+                    if (c[index + 1] == 0 && c[index + 2] == 0)
+                    {
+                        c[index + 1] = 1;
+                    }
                 }
             }
         }
-        Console.WriteLine(objResult);
-        return objResult;
+        // Deduct one to account from the origination step
+        Console.WriteLine(objResult-1);
+        return objResult-1;
     }
 }

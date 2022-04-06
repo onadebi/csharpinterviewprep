@@ -15,7 +15,6 @@ public class JumpingClouds
                 objResult++;
                 if (index < len - 1 && index < len - 2)
                 {
-
                     if (c[index + 1] == 0 && c[index + 2] == 0)
                     {
                         c[index + 1] = 1;
@@ -23,7 +22,7 @@ public class JumpingClouds
                 }
             }
         }
-        // Deduct one to account from the origination step
+        // Deduct one to account first jump from the origination step
         Console.WriteLine(objResult-1);
         return objResult-1;
     }

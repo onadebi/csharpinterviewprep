@@ -5,9 +5,23 @@ partial class Program
 
     public static void Main(string[] args)
     {
+        //Comment out below unneeded region blocks when you need to test specific test cases
+        #region FizzBuzz
+        CSharp.FizzBuzzer.FizzBuzz.fizzBuzzed(15);
+        #endregion
+
+        #region SockMerchant
         Program.sockMerchant(7);
+        #endregion
+
+        #region  Repeated String
         RepeatingLetter.RepeatedString("ababa", 3);
+        #endregion
+
+        #region Least Path jumping clouds
         LeastPath.JumpingClouds.CloudLeastPath(new List<int>{0, 0, 1 ,0 ,0, 1 ,0});
+        #endregion
+
     }
 
     // Sock Merchant color pairing

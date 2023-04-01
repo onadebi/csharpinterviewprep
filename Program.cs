@@ -5,6 +5,11 @@ partial class Program
 
     public static void Main(string[] args)
     {
+        #region LeetCode
+        //TODO: SumTwo
+        Console.WriteLine(LeetCode.TwoSum.GetSums(new int[]{3,2,4}, 6));
+        #endregion
+
         //Comment out below unneeded region blocks when you need to test specific test cases
         #region FizzBuzz
         CSharp.FizzBuzzer.FizzBuzz.fizzBuzzed(15);

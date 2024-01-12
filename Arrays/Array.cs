@@ -27,7 +27,7 @@ public class ArrayThings
 
         Abstractor checker = new AbstractImpl();
         string callerName = checker.GetName();
-        int item2 = Abstractor.FindAll(objResp, a => a == insertionValue);
+        int item2 = Abstractor.FindFirst(objResp, a => a == insertionValue);
         Assert.Equal(objResp[0], insertionValue);
     }
 
@@ -65,8 +65,8 @@ public class ArrayThings
             if (i == arrayz.Length)
             {
                 continue;
-                int[] newArray = new int[arrayz.Length+1];
-                Array.Copy(arrayz, newArray, arrayz.Length);
+                // int[] newArray = new int[arrayz.Length+1];
+                // Array.Copy(arrayz, newArray, arrayz.Length);
             }
             arrayz[i] = arrayz[i - 1];
             //arrayz[0] = currentValue;

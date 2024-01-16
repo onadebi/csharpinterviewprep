@@ -1,3 +1,4 @@
+using System.Text;
 using Xunit;
 
 namespace csharpinterviewprep.Stringz;
@@ -5,7 +6,7 @@ namespace csharpinterviewprep.Stringz;
 public class StringObjz{
 
 
-    static bool isAtEvenIndex(string s, char c){
+    public static bool isAtEvenIndex(string s, char c){
         if(s == null || s.Length == 0) return false;
         if(s.Length == 1) return s[0] == c;
         if(s[0] == c) return true;
@@ -19,7 +20,7 @@ public class StringObjz{
     /// <param name="s"></param>
     /// <param name="c"></param>
     /// <returns></returns>
-    static bool IsAtEvenindexPosition(string s, char c){
+    public static bool IsAtEvenindexPosition(string s, char c){
         if(String.IsNullOrWhiteSpace(s)) return false;
         int i;
         for(i = 0; i< ((s.Length/2) + 1); i += 2){
@@ -30,7 +31,7 @@ public class StringObjz{
         return false;
     }
 
-    static bool IsAtEvenIndexPositionIgnoreCase(string s, char c){
+    public static bool IsAtEvenIndexPositionIgnoreCase(string s, char c){
         if(String.IsNullOrWhiteSpace(s)) return false;
         int i;
         s = s.ToLower();
@@ -43,22 +44,49 @@ public class StringObjz{
         return false;
     }
 
-
-
-
-    [Fact]
-    public void StringObjzTestPositionCaseSensitive(){
-        Assert.True(IsAtEvenindexPosition("abCef", 'C'));
+    /// <summary>
+    /// Reverse a string, using a StringBuilder with no built-in methods
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    internal static string ReverseString(string s)
+    {
+        if(String.IsNullOrWhiteSpace(s)) return s;
+        StringBuilder sb = new();
+        for(int i = s.Length; i > 0; i -= 1){
+            sb.Append(s[i-1]);
+        }
+        return sb.ToString();
     }
 
-    [Fact]
-    public void StringObjzTestPositionCaseInSensitive(){
-        Assert.True(IsAtEvenIndexPositionIgnoreCase("ABcef", 'C'));
+    /// <summary>
+    /// Reverse a string using CharArrays
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    internal static string ReverseStringUsingCharArrays(string s){
+        if(String.IsNullOrWhiteSpace(s)) return s;
+        Char[] charArray = s.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
     }
 
-    [Fact]
-    public void StringObjzTest(){
-        Assert.True(isAtEvenIndex("abcef", 'a'));
-    } 
 
+    /// <summary>
+    /// Check if a string is a palindrome
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    internal static bool IsPalindromeCheck(string s){
+        if(String.IsNullOrWhiteSpace(s)) return false;
+        string normalizedVal = s.ToLower();
+        int l = normalizedVal.Length;
+
+        for(int i = 0; i >= (normalizedVal.Length/2); i +=1 ){
+            if(normalizedVal[i] != normalizedVal[l - i -1]){
+                return false;
+            }
+        }
+        return true;
+    }
 }

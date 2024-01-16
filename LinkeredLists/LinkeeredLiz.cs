@@ -10,9 +10,9 @@ public class LinkeeredLiz
 public class MyList
 {
 
-    public string Text { get; set; } = null;
+    public string Text { get; set; } = default!;
 
-    public MyList Next { get; set; } = null;
+    public MyList Next { get; set; } = default!;
     public void Add(string text)
     {
         this.Next = new MyList { Text = text };

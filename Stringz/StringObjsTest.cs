@@ -49,6 +49,14 @@ public class StringObjsTest
     }
 
     [Fact]
+    void EnumerateStringTest()
+    {
+        int countOfTimes = 5;
+        string result = string.Concat(Enumerable.Repeat("done", countOfTimes));
+        System.Console.WriteLine(result);
+    }
+
+    [Fact]
     void IsPalindromeCheckTest(){
         // Arrange
         string s = "abcEfgh";

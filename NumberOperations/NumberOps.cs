@@ -37,5 +37,36 @@ namespace grouping.NumberOperations
             }
             return maxVal;
         }
+
+        public Dictionary<int, int> MaxProductReturnIndexes(int[] nums)
+        {
+            Dictionary<int, int> objResp = new Dictionary<int, int>();
+            int numLength = nums.Length;
+            if (numLength < 2)
+            {
+                return objResp;
+            }
+
+            int maxVal = nums[0] * nums[1];
+            objResp[0] = nums[0];
+            objResp[1] = nums[1];
+
+            for (int i = 0; i < numLength; i++)
+            {
+                for (int j = i + 1; j < numLength; j++)
+                {
+                    int tempMax = nums[i] * nums[j];
+                    if (tempMax > maxVal)
+                    {
+                        objResp.Clear();
+                        objResp[i] = nums[i];
+                        objResp[j] = nums[j];
+                        maxVal = tempMax;
+                    }
+                }
+            }
+
+            return objResp;
+        }
     }
 }

@@ -38,6 +38,55 @@ namespace grouping.NumberOperations
             return maxVal;
         }
 
+        public int MaxProductBySorting(int[] nums)
+        {
+            int defaultVal = Int32.MaxValue;
+            int length = nums.Length;
+            if (length < 2)
+            {
+                return defaultVal;
+            }
+            Array.Sort(nums);
+            int minVal = nums[0] * nums[1];
+            int maxVal = nums[length - 1] * nums[length - 2];
+            return minVal < maxVal ? maxVal : minVal;
+        }
+
+        public int MaxProductByNoInbuiltMethod(int[] nums)
+        {
+            int length = nums.Length;
+
+            int maxLow = nums[0];
+            int maxHigh = Int32.MinValue;
+
+            int minLow = nums[0];
+            int minHigh = Int32.MaxValue;
+
+            for(int i = 0; i < length; i += 1)
+            {
+                if (nums[i] > maxLow)
+                {
+                    maxHigh = maxLow;
+                    maxLow = nums[i];
+                }
+                else if (nums[i] > maxHigh)
+                {
+                    maxHigh = nums[i];
+                }
+
+                if (nums[i] < minLow)
+                {
+                    minHigh = minLow;
+                    minLow = nums[i];
+                }
+                else if (nums[i] < minHigh)
+                {
+                    minHigh = nums[i];
+                }
+            }
+            return (minLow * minHigh) > (maxLow * maxHigh) ? (minLow * minHigh) : (maxLow * maxHigh);
+        }
+
         public Dictionary<int, int> MaxProductReturnIndexes(int[] nums)
         {
             Dictionary<int, int> objResp = new Dictionary<int, int>();

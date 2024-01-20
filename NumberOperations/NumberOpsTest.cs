@@ -32,6 +32,36 @@ namespace grouping.NumberOperations
             _output.WriteLine($"Max return of t3 {fixture.numbOps.MaxProductReturn(t3)}");
         }
 
+        [Fact(DisplayName = "MaxProductBySortingTest")]
+        void MaxProductBySortingTest()
+        {
+            int[] tt = { 5, 3, 2, 5, 7, 8, 1, 10, -11 };
+            int[] t0 = { 5, 3, 2, 5, 7, 8, 1, 10 };
+            int[] t1 = { 5, 3, 2, 5, 7, 8, 1 };
+            int[] t2 = { -2, -1, -3, 4, 8, 0 };
+            int[] t3 = { -20, 10, 3, 9, -8 };
+
+            int maxProductValue = fixture.numbOps.MaxProductBySorting(tt);
+
+            _output.WriteLine($"Max return of tt {maxProductValue}");
+
+            Assert.Equal(80, maxProductValue);
+        }
+
+        [Fact(DisplayName = "MaxProductByNoInbuiltMethodTest")]
+        void MaxProductByNoInbuiltMethodTest()
+        {
+            int[] tt = { 5, 3, 2, 5, 7, 8 };//, 1, 10, -11 };
+            int[] t0 = { 5, 3, 2, 5, 7, 8, 1, 10 };
+            int[] t1 = { 5, 3, 2, 5, 7, 8, 1 };
+            int[] t2 = { -2, -1, -3, 4, 8, 0 };
+            int[] t3 = { -20, 10, 3, 9, -8 };
+
+            int maxProductValue = fixture.numbOps.MaxProductByNoInbuiltMethod(tt);
+            _output.WriteLine($"Max return of tt {maxProductValue}");
+            Assert.Equal(56, maxProductValue);
+        }
+
         [Fact(DisplayName = "MaxProductReturnIndexesTest")]
         void MaxProductReturnIndexesTest()
         {

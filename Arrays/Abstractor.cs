@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 namespace csharpinterviewprep.Arrays;
 
@@ -11,7 +7,7 @@ public abstract class Abstractor
 {
     public static T? FindFirst<T>(T[] item, Expression<Func<T, bool>> match){
         if (item == null || match == null)
-            return default(T);
+            return default;
         return item.FirstOrDefault(match.Compile());
     }
 

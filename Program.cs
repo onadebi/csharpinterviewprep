@@ -1,32 +1,46 @@
 ﻿namespace Grouping;
+
 using csharpinterviewprep.LinkeredLists;
+using grouping.Arrays;
+
 partial class Program
 {
-  
+
 
     public static void Main(string[] args)
     {
-       #region LeetCode
-       //TODO: SumTwo
-       Console.WriteLine(LeetCode.TwoSum.GetSums(new int[]{3,2,4}, 6));
-       #endregion
 
-       //Comment out below unneeded region blocks when you need to test specific test cases
-       #region FizzBuzz
-       CSharp.FizzBuzzer.FizzBuzz.fizzBuzzed(15);
-       #endregion
+        #region StringSorter
+        var words = "Elephant Ant Bear Zebra Cat Dog Alligator Ape Ostrich Slot";
+        string[] objStrResult = StringSorter.SortWithLengthAsPriority(words);
+        Array.ForEach<string>(objStrResult,e => Console.Write($"{e} ({e.Length})|"));
+        Console.WriteLine(string.Concat("\n\t",string.Join("",System.Linq.Enumerable.Repeat("=",40))));
 
-       #region SockMerchant
-       Program.sockMerchant(7);
-       #endregion
+        string[] objStrResultDesc = StringSorter.SortWithLengthAsPriority(words,SortDirection.DESC);
+        Array.ForEach<string>(objStrResultDesc,e => Console.Write($"{e} ({e.Length})|"));
+        #endregion
 
-       #region  Repeated String
-       RepeatingLetter.RepeatedString("ababa", 3);
-       #endregion
+        // #region LeetCode
+        // //TODO: SumTwo
+        // Console.WriteLine(LeetCode.TwoSum.GetSums(new int[] { 3, 2, 4 }, 6));
+        // #endregion
 
-       #region Least Path jumping clouds
-       LeastPath.JumpingClouds.CloudLeastPath(new List<int>{0, 0, 1 ,0 ,0, 1 ,0});
-       #endregion
+        // //Comment out below unneeded region blocks when you need to test specific test cases
+        // #region FizzBuzz
+        // CSharp.FizzBuzzer.FizzBuzz.fizzBuzzed(15);
+        // #endregion
+
+        // #region SockMerchant
+        // Program.sockMerchant(7);
+        // #endregion
+
+        // #region  Repeated String
+        // RepeatingLetter.RepeatedString("ababa", 3);
+        // #endregion
+
+        // #region Least Path jumping clouds
+        // LeastPath.JumpingClouds.CloudLeastPath(new List<int> { 0, 0, 1, 0, 0, 1, 0 });
+        // #endregion
 
     }
     // public static void Main(string[] args)
@@ -64,5 +78,5 @@ partial class Program
         Console.WriteLine(countResult);
         return countResult;
     }
-    
+
 }

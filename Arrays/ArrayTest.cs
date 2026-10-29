@@ -1,8 +1,10 @@
 
 using csharpinterviewprep.Arrays;
 using Xunit;
+// using System.Linq;
 
 namespace Arrays;
+
 public class ArrayThings
 {
     [Theory]
@@ -23,7 +25,7 @@ public class ArrayThings
     public void ArrayFirstInsert(int value, int insertionValue)
     {
         int[] objResp = ArrayInsertFirst(value, insertionValue);
-        int item = Array.Find(objResp,(p)=> p== insertionValue);
+        int item = Array.Find(objResp, (p) => p == insertionValue);
 
         Abstractor checker = new AbstractImpl();
         string callerName = checker.GetName();
@@ -31,6 +33,15 @@ public class ArrayThings
         Assert.Equal(objResp[0], insertionValue);
     }
 
+    [Theory]
+    [InlineData("Hello people", 'l')]
+    public void FindCharacterCount(string word, char param)
+    {
+        int result = CountPresent(word, param);
+        Assert.Equal(3, result);
+    }
+
+    #region Helper Functions
     public int[] ArrayInsertLast(int arrayCount = 6)
     {
         int[] arrayz = new int[arrayCount];
@@ -42,6 +53,14 @@ public class ArrayThings
             length++;
         }
         return arrayz;
+    }
+
+    private int CountPresent(string word, char param)
+    {
+        int counter = 0;
+        counter = word.AsSpan().Count(param);
+        // Array.ForEach(word.ToCharArray(), n => { if (n == param) { counter++; } });
+        return counter;
     }
 
     public int[] ArrayInsertFirst(int arrayCount, int valueToInsert)
@@ -74,4 +93,6 @@ public class ArrayThings
         arrayz[0] = valueToInsert;
         return arrayz;
     }
+
+    #endregion
 }

@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Arrays;
 
-public class ArrayThings
+public class ArrayTestExtended
 {
     [Theory]
     [InlineData(6)]
